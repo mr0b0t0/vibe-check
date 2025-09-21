@@ -56,6 +56,6 @@ jobs:
 
       - name: Publish CLI package
         working-directory: packages/vibe-cli
-        run: npm publish --access public
+        run: npm publish @mr0b0t0/vibe-check --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
