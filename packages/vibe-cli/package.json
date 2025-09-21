@@ -1,39 +1,11 @@
 {
   "name": "vibe-cli",
   "version": "1.0.0",
-  "description": "AI-powered security and testing CLI for web applications. Automated security scanning, UI testing, and intelligent analysis.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
     "vibe": "./bin/vibe"
   },
-  "files": [
-    "dist/",
-    "bin/",
-    "README.md"
-  ],
-  "keywords": [
-    "security",
-    "testing",
-    "ai",
-    "cli",
-    "vulnerability",
-    "scanning",
-    "playwright",
-    "automation",
-    "web-security",
-    "ui-testing"
-  ],
-  "homepage": "https://github.com/yourusername/vibe-check#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yourusername/vibe-check.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/vibe-check/issues"
-  },
-  "author": "Your Name <your.email@example.com>",
-  "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
   },
@@ -58,7 +30,12 @@
     "glob": "^10.3.10",
     "prompts": "^2.4.2",
     "yaml": "^2.4.5",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "vibe-spec": "workspace:*",
+    "vibe-adapters": "workspace:*",
+    "vibe-generators": "workspace:*",
+    "vibe-reporter": "workspace:*",
+    "vibe-ai": "workspace:*"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.3",

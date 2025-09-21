@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/generators",
+  "name": "vibe-generators",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   "dependencies": {
     "@playwright/test": "^1.47.2",
     "fs-extra": "^11.2.0",
-    "@vibe/spec": "workspace:*"
+    "vibe-spec": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.2",

@@ -1,0 +1,54 @@
+name: Publish CLI to npm
+
+on:
+  # Trigger when a new tag is pushed, e.g. v1.0.0
+  push:
+    tags:
+      - 'v*.*.*'
+  # (optional) also on manual workflow dispatch
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    name: Build & Publish CLI
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+
+      - name: Cache pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm -r --workspace-concurrency=1 --filter "packages/vibe-cli" run build
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Publish CLI package
+        run: npm publish packages/vibe-cli --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

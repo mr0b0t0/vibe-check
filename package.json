@@ -1,15 +1,67 @@
 {
-  "name": "vibe-check",
-  "version": "1.0.0",
-  "description": "",
-  "packageManager": "pnpm@9",
+  "name": "@mr0b0t0/vibe-check",
+  "version": "1.0.3",
+  "description": "AI-powered security and testing CLI for web applications. Automated security scanning, UI testing, and intelligent analysis.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "vibe": "./bin/vibe",
+    "vibe-check": "./bin/vibe"
+  },
+  "files": [
+    "dist/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "security",
+    "testing",
+    "ai",
+    "cli",
+    "vulnerability",
+    "scanning",
+    "playwright",
+    "automation",
+    "web-security",
+    "ui-testing"
+  ],
+  "homepage": "https://github.com/mr0b0t0/vibe-check#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr0b0t0/vibe-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mr0b0t0/vibe-check/issues"
+  },
+  "author": "german <german@aconite.io>",
+  "license": "MIT",
+  "packageManager": "pnpm@10.17.0",
   "scripts": {
-    "build": "pnpm -r --filter ./packages/* run build",
-    "dev:app": "pnpm --filter simple-webapp dev",
-    "vibe": "pnpm --filter @vibe/cli start"
+    "build": "pnpm -r --workspace-concurrency=1 --filter './packages/*' run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^0.0.50",
+    "@ai-sdk/google": "^0.0.52",
+    "@ai-sdk/openai": "^0.0.66",
+    "@ai-sdk/xai": "^2.0.20",
+    "@types/fs-extra": "^11.0.4",
+    "ai": "^3.4.32",
+    "commander": "^12.1.0",
+    "dotenv": "^17.2.2",
+    "fs-extra": "^11.3.2",
+    "glob": "^10.3.10",
+    "prompts": "^2.4.2",
+    "yaml": "^2.4.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "typescript": "^5.6.2",
-    "@types/node": "^20.14.10"
+    "@types/node": "^20.14.10",
+    "@types/dotenv": "^8.2.3",
+    "@types/prompts": "^2.4.4"
   }
 }

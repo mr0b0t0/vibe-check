@@ -161,25 +161,59 @@ export default async (opts: {
     console.log("\n🎭 Running Playwright tests...");
   }
 
-  // For comprehensive scans, use line reporter for streaming + json for results
-  // For standalone runs, just use json
-  const reporters = opts.fromComprehensive
-    ? ["line", "json:playwright-results.json"]
-    : ["json"];
+  // Run tests with line reporter for user feedback
+  const resultsPath = path.join(process.cwd(), ".vibe/playwright-results.json");
 
-  const r = await sh("npx", [
-    "playwright",
-    "test",
-    `--reporter=${reporters.join(",")}`,
-    "--timeout=5000", // 5 second timeout per test
-    "--max-failures=10", // Stop after 10 failures
-    "--workers=1", // Use single worker to avoid resource issues
-  ]);
-  // Only write stdout to results file if we're not using file output reporter
-  if (!opts.fromComprehensive) {
-    writeFileSync(".vibe/playwright-results.json", r.stdout || "{}");
+  const r = await sh(
+    "npx",
+    [
+      "playwright",
+      "test",
+      "--reporter=line",
+      `--output=${path.join(process.cwd(), ".vibe/artifacts")}`,
+      "--timeout=30000",
+      "--max-failures=10",
+    ],
+    { stdio: "inherit" }
+  );
+
+  // Capture JSON results in a separate run (only if the first run didn't completely fail)
+  try {
+    const jsonResult = await sh(
+      "npx",
+      [
+        "playwright",
+        "test",
+        "--reporter=json",
+        "--timeout=30000",
+        "--max-failures=10",
+      ],
+      {
+        stdio: ["inherit", "pipe", "inherit"],
+        cwd: process.cwd(),
+      }
+    );
+
+    if (jsonResult.stdout) {
+      writeFileSync(resultsPath, jsonResult.stdout);
+    }
+  } catch (error) {
+    // If JSON capture fails, create an empty results file
+    writeFileSync(resultsPath, JSON.stringify({ suites: [] }));
   }
-  // For comprehensive scans, the json reporter writes directly to playwright-results.json
+
+  // Read and parse the JSON results file produced by the reporter
+  let results: any = null;
+  try {
+    const raw = readFileSync(resultsPath, "utf-8");
+    results = JSON.parse(raw);
+  } catch (e) {
+    console.warn(
+      "[vibe] Could not read Playwright JSON results from",
+      resultsPath,
+      e
+    );
+  }
 
   if (!opts.fromComprehensive) {
     console.log("[vibe] ui tests complete");
@@ -188,9 +222,8 @@ export default async (opts: {
   // Check for AI test failures
   if (aiService && r.code !== 0) {
     try {
-      const results = JSON.parse(r.stdout || "{}");
       const aiTestFailures =
-        results.suites?.filter((s: any) => s.title?.includes("AI Generated"))
+        results?.suites?.filter((s: any) => s.title?.includes("AI Generated"))
           ?.length || 0;
 
       if (aiTestFailures > 0 && aiService.shouldFailOnCritical()) {

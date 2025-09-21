@@ -1,4 +1,4 @@
-# vibe-check (starter)
+# @mr0b0t0/vibe-check CLI
 
 Monorepo for the spec-driven validator CLI. Quick start:
 
@@ -6,16 +6,17 @@ Monorepo for the spec-driven validator CLI. Quick start:
 pnpm i
 pnpm -r build
 pnpm dev:app # starts example web app on :3000
-pnpm vibe -- spec lint -c ./specs/vibe.yaml
-pnpm vibe -- app up -c ./specs/vibe.yaml
-pnpm vibe -- ui test -c ./specs/vibe.yaml
-pnpm vibe -- scan code -c ./specs/vibe.yaml
-pnpm vibe -- report -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check
+pnpm @mr0b0t0/vibe-check -- spec lint -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- app up -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- ui test -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- scan code -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- report -c ./specs/vibe.yaml
 ```
 
 ## Overview
 
-`vibe-check` is a comprehensive spec-driven validation tool for AI agent-generated applications. It provides:
+`@mr0b0t0/vibe-check` is a comprehensive spec-driven validation tool for AI agent-generated applications. It provides:
 
 - **Spec validation**: Validates your `vibe.yaml` configuration against a strict schema
 - **App lifecycle management**: Starts apps and waits for health checks
@@ -41,21 +42,21 @@ This is a pnpm monorepo with the following packages:
 ### Spec Management
 
 ```bash
-pnpm vibe -- spec lint -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- spec lint -c ./specs/vibe.yaml
 ```
 
 ### App Lifecycle
 
 ```bash
-pnpm vibe -- app up -c ./specs/vibe.yaml
-pnpm vibe -- app down
+pnpm @mr0b0t0/vibe-check -- app up -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- app down
 ```
 
 ### Testing
 
 ```bash
-pnpm vibe -- ui test -c ./specs/vibe.yaml
-pnpm vibe -- api test -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- ui test -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- api test -c ./specs/vibe.yaml
 ```
 
 ### Security Scanning
@@ -63,19 +64,19 @@ pnpm vibe -- api test -c ./specs/vibe.yaml
 **🔍 Comprehensive Security Scan (NEW!):**
 
 ```bash
-pnpm vibe -- scan -c ./specs/vibe.yaml           # All scans + AI analysis
-pnpm vibe -- scan --no-ai                        # All scans, no AI
-pnpm vibe -- scan --auto-install                 # Auto-install missing tools
-pnpm vibe -- scan --skip-install                 # Skip tool installation
+pnpm @mr0b0t0/vibe-check -- scan -c ./specs/vibe.yaml           # All scans + AI analysis
+pnpm @mr0b0t0/vibe-check -- scan --no-ai                        # All scans, no AI
+pnpm @mr0b0t0/vibe-check -- scan --auto-install                 # Auto-install missing tools
+pnpm @mr0b0t0/vibe-check -- scan --skip-install                 # Skip tool installation
 ```
 
 **Individual Security Scans:**
 
 ```bash
-pnpm vibe -- scan code -c ./specs/vibe.yaml      # Semgrep only
-pnpm vibe -- scan deps -c ./specs/vibe.yaml      # OSV-Scanner only
-pnpm vibe -- scan secrets -c ./specs/vibe.yaml   # Gitleaks only
-pnpm vibe -- scan zap -c ./specs/vibe.yaml       # OWASP ZAP only
+pnpm @mr0b0t0/vibe-check -- scan code -c ./specs/vibe.yaml      # Semgrep only
+pnpm @mr0b0t0/vibe-check -- scan deps -c ./specs/vibe.yaml      # OSV-Scanner only
+pnpm @mr0b0t0/vibe-check -- scan secrets -c ./specs/vibe.yaml   # Gitleaks only
+pnpm @mr0b0t0/vibe-check -- scan zap -c ./specs/vibe.yaml       # OWASP ZAP only
 ```
 
 **📦 Installing Security Tools:**
@@ -105,7 +106,7 @@ The comprehensive scan automatically:
 ### Reporting
 
 ```bash
-pnpm vibe -- report -c ./specs/vibe.yaml
+pnpm @mr0b0t0/vibe-check -- report -c ./specs/vibe.yaml
 ```
 
 ## Configuration
@@ -192,5 +193,5 @@ pnpm -r build
 pnpm dev:app
 
 # Run the CLI in development
-pnpm vibe -- --help
+pnpm @mr0b0t0/vibe-check -- --help
 ```

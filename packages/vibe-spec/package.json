@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/spec",
+  "name": "vibe-spec",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/types.js",

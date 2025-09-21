@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "node:path";
-import { VibeSpec } from "@vibe/spec";
+import { VibeSpec } from "vibe-spec";
 import { emitLoginHelper } from "./login.js";
 
 export async function generateTests(spec: VibeSpec, outDir: string) {

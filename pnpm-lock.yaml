@@ -7,19 +7,71 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@ai-sdk/anthropic':
+        specifier: ^0.0.50
+        version: 0.0.50(zod@3.25.76)
+      '@ai-sdk/google':
+        specifier: ^0.0.52
+        version: 0.0.52(zod@3.25.76)
+      '@ai-sdk/openai':
+        specifier: ^0.0.66
+        version: 0.0.66(zod@3.25.76)
+      '@ai-sdk/xai':
+        specifier: ^2.0.20
+        version: 2.0.20(zod@3.25.76)
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
+      ai:
+        specifier: ^3.4.32
+        version: 3.4.33(openai@4.104.0(zod@3.25.76))(react@19.1.1)(sswr@2.2.0(svelte@5.39.3))(svelte@5.39.3)(vue@3.5.21(typescript@5.9.2))(zod@3.25.76)
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
+      dotenv:
+        specifier: ^17.2.2
+        version: 17.2.2
+      fs-extra:
+        specifier: ^11.3.2
+        version: 11.3.2
+      glob:
+        specifier: ^10.3.10
+        version: 10.4.5
+      prompts:
+        specifier: ^2.4.2
+        version: 2.4.2
+      yaml:
+        specifier: ^2.4.5
+        version: 2.8.1
+      zod:
+        specifier: ^3.23.8
+        version: 3.25.76
     devDependencies:
+      '@types/dotenv':
+        specifier: ^8.2.3
+        version: 8.2.3
       '@types/node':
         specifier: ^20.14.10
         version: 20.19.17
+      '@types/prompts':
+        specifier: ^2.4.4
+        version: 2.4.9
       typescript:
         specifier: ^5.6.2
         version: 5.9.2
 
   examples/simple-webapp:
     dependencies:
+      '@playwright/test':
+        specifier: ^1.55.0
+        version: 1.55.0
       express:
         specifier: ^4.19.2
         version: 4.21.2
+      playwright:
+        specifier: ^1.55.0
+        version: 1.55.0
     devDependencies:
       '@types/express':
         specifier: ^4.17.21
@@ -57,15 +109,18 @@ importers:
       '@ai-sdk/xai':
         specifier: ^2.0.20
         version: 2.0.20(zod@3.25.76)
-      '@vibe/spec':
-        specifier: workspace:*
-        version: link:../vibe-spec
       ai:
         specifier: ^3.4.32
         version: 3.4.33(openai@4.104.0(zod@3.25.76))(react@19.1.1)(sswr@2.2.0(svelte@5.39.3))(svelte@5.39.3)(vue@3.5.21(typescript@5.9.2))(zod@3.25.76)
       glob:
         specifier: ^10.3.10
         version: 10.4.5
+      vibe-adapters:
+        specifier: workspace:*
+        version: link:../vibe-adapters
+      vibe-spec:
+        specifier: workspace:*
+        version: link:../vibe-spec
       zod:
         specifier: ^3.23.8
         version: 3.25.76
@@ -79,30 +134,54 @@ importers:
 
   packages/vibe-cli:
     dependencies:
-      '@vibe/adapters':
-        specifier: workspace:*
-        version: link:../vibe-adapters
-      '@vibe/ai':
-        specifier: workspace:*
-        version: link:../vibe-ai
-      '@vibe/generators':
-        specifier: workspace:*
-        version: link:../vibe-generators
-      '@vibe/reporter':
-        specifier: workspace:*
-        version: link:../vibe-reporter
-      '@vibe/spec':
-        specifier: workspace:*
-        version: link:../vibe-spec
+      '@ai-sdk/anthropic':
+        specifier: ^0.0.50
+        version: 0.0.50(zod@3.25.76)
+      '@ai-sdk/google':
+        specifier: ^0.0.52
+        version: 0.0.52(zod@3.25.76)
+      '@ai-sdk/openai':
+        specifier: ^0.0.66
+        version: 0.0.66(zod@3.25.76)
+      '@ai-sdk/xai':
+        specifier: ^2.0.20
+        version: 2.0.20(zod@3.25.76)
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
+      ai:
+        specifier: ^3.4.32
+        version: 3.4.33(openai@4.104.0(zod@3.25.76))(react@19.1.1)(sswr@2.2.0(svelte@5.39.3))(svelte@5.39.3)(vue@3.5.21(typescript@5.9.2))(zod@3.25.76)
       commander:
         specifier: ^12.1.0
         version: 12.1.0
       dotenv:
         specifier: ^17.2.2
         version: 17.2.2
+      fs-extra:
+        specifier: ^11.3.2
+        version: 11.3.2
+      glob:
+        specifier: ^10.3.10
+        version: 10.4.5
       prompts:
         specifier: ^2.4.2
         version: 2.4.2
+      vibe-adapters:
+        specifier: workspace:*
+        version: link:../vibe-adapters
+      vibe-ai:
+        specifier: workspace:*
+        version: link:../vibe-ai
+      vibe-generators:
+        specifier: workspace:*
+        version: link:../vibe-generators
+      vibe-reporter:
+        specifier: workspace:*
+        version: link:../vibe-reporter
+      vibe-spec:
+        specifier: workspace:*
+        version: link:../vibe-spec
       yaml:
         specifier: ^2.4.5
         version: 2.8.1
@@ -128,12 +207,12 @@ importers:
       '@playwright/test':
         specifier: ^1.47.2
         version: 1.55.0
-      '@vibe/spec':
-        specifier: workspace:*
-        version: link:../vibe-spec
       fs-extra:
         specifier: ^11.2.0
         version: 11.3.2
+      vibe-spec:
+        specifier: workspace:*
+        version: link:../vibe-spec
     devDependencies:
       '@types/fs-extra':
         specifier: ^11.0.4

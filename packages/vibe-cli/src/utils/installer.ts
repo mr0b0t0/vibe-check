@@ -17,16 +17,22 @@ export interface Tool {
 export const UI_TOOLS: Tool[] = [
   {
     name: "playwright",
-    command: "npx playwright",
+    command: "npx playwright test",
     description: "End-to-end testing framework",
+    checkCommand: "npx playwright --help",
     installInstructions: {
       macos: [
-        "npm install @playwright/test",
+        "npm install @playwright/test --save-dev",
         "npx playwright install",
         "npx playwright install-deps",
       ],
       linux: [
-        "npm install @playwright/test",
+        "npm install @playwright/test --save-dev",
+        "npx playwright install",
+        "npx playwright install-deps",
+      ],
+      windows: [
+        "npm install @playwright/test --save-dev",
         "npx playwright install",
         "npx playwright install-deps",
       ],

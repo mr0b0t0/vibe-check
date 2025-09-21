@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/ai",
+  "name": "vibe-ai",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -14,7 +14,8 @@
     "@ai-sdk/xai": "^2.0.20",
     "zod": "^3.23.8",
     "glob": "^10.3.10",
-    "@vibe/spec": "workspace:*"
+    "vibe-spec": "workspace:*",
+    "vibe-adapters": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.2",
