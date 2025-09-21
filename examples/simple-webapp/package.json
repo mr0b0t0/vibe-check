@@ -1,0 +1,19 @@
+{
+  "name": "simple-webapp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.55.0",
+    "express": "^4.19.2",
+    "playwright": "^1.55.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.2"
+  }
+}

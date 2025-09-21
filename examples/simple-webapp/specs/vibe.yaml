@@ -1,0 +1,71 @@
+version: "1.0"
+
+ai:
+  enabled: true
+  provider: google
+  model: gemini-2.0-flash-exp
+  temperature: 0.2
+  maxTokens: 4000
+  thresholds:
+    aiCriticalToFail: true
+    treatLowConfidenceAsInfo: true
+
+app:
+  start: "pnpm --filter simple-webapp dev"
+  url: "http://localhost:3000"
+  healthcheck:
+    path: "/"
+    status: 200
+    timeoutSec: 30
+
+auth:
+  strategy: "credentials"
+  testUsers:
+    - role: admin
+      email: admin@example.com
+      password: adminpass
+
+modules:
+  - id: auth
+    pages:
+      - path: "/login"
+        shouldContain: ["form[name=login]", "button[type=submit]"]
+        flows:
+          - name: login-success
+            asRole: admin
+            steps:
+              - goto: "/login"
+              - fill: { "[name=email]": "admin@example.com" }
+              - fill: { "[name=password]": "adminpass" }
+              - click: "button[type=submit]"
+              - expectUrl: "/dashboard"
+  - id: contacts
+    pages:
+      - path: "/contacts"
+        shouldContain: ["#new-contact"]
+        flows:
+          - name: create-contact
+            asRole: admin
+            steps:
+              - goto: "/contacts"
+              - click: "#new-contact"
+              - expectText: "Contact created"
+
+scanners:
+  semgrep:
+    config: "p/ci"
+  trivy:
+    scan: "repo"
+  osv: {}
+  gitleaks: {}
+  dast:
+    mode: "baseline"
+    timeoutSec: 300
+
+reporting:
+  failOn:
+    uiFailures: 1
+    sastSeverity: "high"
+    depSeverity: "high"
+    secretFindings: 0
+    dastSeverity: "high"

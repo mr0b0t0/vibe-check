@@ -1,0 +1,23 @@
+{
+  "name": "@vibe/ai",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "ai": "^3.4.32",
+    "@ai-sdk/openai": "^0.0.66",
+    "@ai-sdk/anthropic": "^0.0.50",
+    "@ai-sdk/google": "^0.0.52",
+    "@ai-sdk/xai": "^2.0.20",
+    "zod": "^3.23.8",
+    "glob": "^10.3.10",
+    "@vibe/spec": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "@types/node": "^20.14.10"
+  }
+}

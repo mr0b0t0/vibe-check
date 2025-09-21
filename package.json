@@ -1,0 +1,15 @@
+{
+  "name": "vibe-check",
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "pnpm@9",
+  "scripts": {
+    "build": "pnpm -r --filter ./packages/* run build",
+    "dev:app": "pnpm --filter simple-webapp dev",
+    "vibe": "pnpm --filter @vibe/cli start"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "@types/node": "^20.14.10"
+  }
+}
