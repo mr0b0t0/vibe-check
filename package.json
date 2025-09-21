@@ -48,6 +48,7 @@
     "@ai-sdk/google": "^0.0.52",
     "@ai-sdk/openai": "^0.0.66",
     "@ai-sdk/xai": "^2.0.20",
+    "@playwright/test": "^1.55.0",
     "@types/fs-extra": "^11.0.4",
     "ai": "^3.4.32",
     "commander": "^12.1.0",
@@ -59,9 +60,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5.6.2",
-    "@types/node": "^20.14.10",
     "@types/dotenv": "^8.2.3",
-    "@types/prompts": "^2.4.4"
+    "@types/node": "^20.14.10",
+    "@types/prompts": "^2.4.4",
+    "typescript": "^5.6.2"
   }
 }
