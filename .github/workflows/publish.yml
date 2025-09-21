@@ -51,11 +51,9 @@ jobs:
           test -x packages/vibe-cli/bin/vibe || (echo "bin/vibe is not executable" && exit 1)
 
       - name: Preview npm pack contents
-        working-directory: packages/vibe-cli
         run: npm pack --dry-run
 
       - name: Publish CLI package
-        working-directory: packages/vibe-cli
         run: npm publish @mr0b0t0/vibe-check --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
