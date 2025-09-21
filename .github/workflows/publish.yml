@@ -54,6 +54,6 @@ jobs:
         run: npm pack --dry-run
 
       - name: Publish CLI package
-        run: npm publish @mr0b0t0/vibe-check --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
