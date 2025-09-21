@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { z } from "zod";
-import { VibeSchema } from "@vibe/spec";
+import { VibeSchema } from "../lib/spec/types.js";
 import { initializeAi } from "../utils/ai.js";
 
 export default async (opts: {

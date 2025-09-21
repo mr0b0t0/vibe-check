@@ -1,4 +1,4 @@
-import { runDredd, runSchemathesis } from "@vibe/adapters";
+import { runDredd, runSchemathesis } from "../lib/adapters/index.js";
 export default async (opts: {
   config: string;
   noAi?: boolean;

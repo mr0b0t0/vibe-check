@@ -1,4 +1,4 @@
-import { runOSV, runTrivyRepo } from "@vibe/adapters";
+import { runOSV, runTrivyRepo } from "../lib/adapters/index.js";
 import { checkAndInstallTools } from "../utils/installer.js";
 
 export default async (opts: {

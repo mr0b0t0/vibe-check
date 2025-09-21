@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { VibeSchema } from "@vibe/spec";
+import { VibeSchema } from "../lib/spec/types.js";
 import scanCode from "./scan-code.js";
 import scanDeps from "./scan-deps.js";
 import scanSecrets from "./scan-secrets.js";

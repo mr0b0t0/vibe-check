@@ -1,4 +1,4 @@
-import { runGitleaks } from "@vibe/adapters";
+import { runGitleaks } from "../lib/adapters/index.js";
 import { checkAndInstallTools } from "../utils/installer.js";
 
 export default async (opts: {

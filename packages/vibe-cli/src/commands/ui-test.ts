@@ -1,5 +1,5 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
-import { generateTests, ensurePlaywrightConfig } from "@vibe/generators";
+import { generateTests, ensurePlaywrightConfig } from "../lib/generators/index.js";
 import path from "node:path";
 import { initializeAi } from "../utils/ai.js";
 import { checkAndInstallUiTools } from "../utils/installer.js";

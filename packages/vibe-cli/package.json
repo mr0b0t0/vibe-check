@@ -40,20 +40,25 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
-    "prepublishOnly": "npm run build"
+    "clean": "rm -rf dist/",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "node dist/index.js --help",
+    "publish:npm": "npm publish"
   },
   "dependencies": {
-    "commander": "^12.1.0",
-    "dotenv": "^17.2.2",
-    "prompts": "^2.4.2",
-    "yaml": "^2.4.5",
-    "zod": "^3.23.8",
-    "ai": "^3.4.32",
-    "@ai-sdk/openai": "^0.0.66",
     "@ai-sdk/anthropic": "^0.0.50",
     "@ai-sdk/google": "^0.0.52",
+    "@ai-sdk/openai": "^0.0.66",
     "@ai-sdk/xai": "^2.0.20",
-    "glob": "^10.3.10"
+    "@types/fs-extra": "^11.0.4",
+    "ai": "^3.4.32",
+    "commander": "^12.1.0",
+    "dotenv": "^17.2.2",
+    "fs-extra": "^11.3.2",
+    "glob": "^10.3.10",
+    "prompts": "^2.4.2",
+    "yaml": "^2.4.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.3",

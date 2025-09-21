@@ -1,4 +1,4 @@
-import { mergeSarif } from "@vibe/reporter";
+import { mergeSarif } from "../lib/reporter/index.js";
 import { writeFileSync, readFileSync, existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { initializeAi } from "../utils/ai.js";

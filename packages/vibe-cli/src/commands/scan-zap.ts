@@ -1,4 +1,4 @@
-import { runZapBaseline } from "@vibe/adapters";
+import { runZapBaseline } from "../lib/adapters/index.js";
 import { checkAndInstallTools } from "../utils/installer.js";
 
 export default async (opts: {

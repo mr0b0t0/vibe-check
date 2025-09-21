@@ -1,5 +1,5 @@
 import { readFileSync, existsSync } from "node:fs";
-import { runSemgrep } from "@vibe/adapters";
+import { runSemgrep } from "../lib/adapters/index.js";
 import { initializeAi } from "../utils/ai.js";
 import { checkAndInstallTools } from "../utils/installer.js";
 
