@@ -43,9 +43,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm -r --workspace-concurrency=1 --filter "packages/vibe-cli" run build
+        run: pnpm build:ci
 
       - name: Publish CLI package
-        run: npm publish @mr0b0t0/vibe-check --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
