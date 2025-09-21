@@ -40,12 +40,22 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build all packages
-        run: pnpm build:ci
+        run: pnpm -r --workspace-concurrency=1 --filter "./packages/*" run build
+
+      - name: Verify dist exists
+        run: |
+          test -f packages/vibe-cli/dist/index.js || (echo "dist/index.js missing" && exit 1)
+          test -x packages/vibe-cli/bin/vibe || (echo "bin/vibe is not executable" && exit 1)
+
+      - name: Preview npm pack contents
+        working-directory: packages/vibe-cli
+        run: npm pack --dry-run
 
       - name: Publish CLI package
+        working-directory: packages/vibe-cli
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

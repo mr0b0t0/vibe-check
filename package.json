@@ -1,6 +1,6 @@
 {
   "name": "@mr0b0t0/vibe-check",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AI-powered security and testing CLI for web applications. Automated security scanning, UI testing, and intelligent analysis.",
   "type": "module",
   "main": "dist/index.js",
